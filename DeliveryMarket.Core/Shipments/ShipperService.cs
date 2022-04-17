@@ -36,24 +36,24 @@ namespace DeliveryMarket.Core.Shipments
         /// <param name="expireUtc">expiration time of this request</param>
         /// <param name="notes">additional information</param>
         /// <returns>shipment request</returns>
-        public Task<Result<ShipmentRequest>> CreateRequestAsync(Shipper shipper, Route route, decimal budget, DateTime expireUtc, string notes = null)
+        public async Task<Result<ShipmentRequest>> CreateRequestAsync(Shipper shipper, Route route, decimal budget, DateTime expireUtc, string notes = null)
         {
             if (route == null || !route.IsValid)
             {
-                Result.Fail("Full route is not defined");
+                return Result.Fail("Full route is not defined");
             }
 
             if (budget <= 0)
             {
-                Result.Fail("Budget has to larger than 0");
+                return Result.Fail("Budget has to larger than 0");
             }
 
             if (expireUtc <= DateTimeProvider.UtcNow)
             {
-                Result.Fail("Expire time has to be in the future");
+                return Result.Fail("Expire time has to be in the future");
             }
 
-            return _requestRepository.CreateAsync(shipper.Id, route, budget, expireUtc, notes);
+            return await _requestRepository.CreateAsync(shipper.Id, route, budget, expireUtc, notes);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace DeliveryMarket.Core.Shipments
             }
 
             var shipmentResult =
-                await _shipmentRepository.CreateAsync(shipmentRequestId, shipmentOfferId, DateTime.UtcNow);
+                await _shipmentRepository.CreateAsync(shipmentRequestId, shipmentOfferId, DateTimeProvider.UtcNow);
 
             if (shipmentResult.IsFailed)
             {

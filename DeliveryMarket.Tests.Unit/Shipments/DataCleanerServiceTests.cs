@@ -20,14 +20,14 @@ namespace DeliveryMarket.Tests.Unit.Shipments
 {
     public class DataCleanerServiceTests
     {
-        private Mock<IShipmentRequestRepository> _requestRepository;
-        private Mock<IShipmentOfferRepository> _offerRepository;
-        private Mock<IShipmentRepository> _shipmentRepository;
-        private Mock<INotifyService> _notifyService;
-        private Mock<ILogger<IDataCleanerService>> _logger;
-        private IDataCleanerService _dataCleanerService;
-        private Carrier _carrier;
-        private Shipper _shipper;
+        private readonly Mock<IShipmentRequestRepository> _requestRepository;
+        private readonly Mock<IShipmentOfferRepository> _offerRepository;
+        private readonly Mock<IShipmentRepository> _shipmentRepository;
+        private readonly Mock<INotifyService> _notifyService;
+        private readonly Mock<ILogger<IDataCleanerService>> _logger;
+        private readonly IDataCleanerService _dataCleanerService;
+        private readonly Carrier _carrier;
+        private readonly Shipper _shipper;
 
         public DataCleanerServiceTests()
         {
