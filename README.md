@@ -12,7 +12,7 @@ and the Carrier wants to move those shipments from pickup location to destinatio
 
 # project requirements
 
-This project does not need any external system to be used.
-If you run it as your own service you need to implement interfaces:
+This project does not have any external system specified.
+Interface implementation need to be added:
 - IRepository for database engine
 - INotification for notification engine
