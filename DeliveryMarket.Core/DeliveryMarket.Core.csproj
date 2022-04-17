@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DateTimeProvider" Version="1.0.106" />
+    <PackageReference Include="FluentResults" Version="3.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeliveryMarket.Core.Model\DeliveryMarket.Core.Model.csproj" />
+    <ProjectReference Include="..\DeliveryMarket.DataAccess\DeliveryMarket.DataAccess.csproj" />
+    <ProjectReference Include="..\DeliveryMarket.Notification\DeliveryMarket.Notification.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Users\" />
+  </ItemGroup>
+
+</Project>
